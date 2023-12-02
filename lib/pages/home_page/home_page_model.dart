@@ -6,7 +6,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  String currentPageLink = '';
+  // Stores action output result for [Custom Action - getAccessToken] action in Button widget.
+  String? oauth;
 
   /// Initialization and disposal methods.
 

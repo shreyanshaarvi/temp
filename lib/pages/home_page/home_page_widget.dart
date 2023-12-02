@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home_page_model.dart';
@@ -70,23 +72,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SelectionArea(
-                  child: Text(
-                _model.currentPageLink,
-                style: FlutterFlowTheme.of(context).bodyMedium,
-              )),
               Align(
                 alignment: const AlignmentDirectional(0.00, 0.00),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    _model.currentPageLink = await generateCurrentPageLink(
-                      context,
-                      title: 'new',
-                      description: 'new',
-                      isShortLink: false,
+                    _model.oauth = await actions.getAccessToken(
+                      '237134169841-jhtpetg0i8o9ob3pm18tm9bpsgmhn2qs.apps.googleusercontent.com',
+                      'https://googletest.com/?sd=new&st=new&apn=com.mycompany.googletest&ibi=com.mycompany.googletest&link=https%3A%2F%2Fgoogletest.com%2F',
+                      List.generate(
+                          random_data.randomInteger(0, 0),
+                          (index) => random_data.randomString(
+                                0,
+                                0,
+                                true,
+                                false,
+                                false,
+                              )).toList(),
                     );
 
-                    await launchURL(_model.currentPageLink);
+                    setState(() {});
                   },
                   text: 'Sign In',
                   options: FFButtonOptions(

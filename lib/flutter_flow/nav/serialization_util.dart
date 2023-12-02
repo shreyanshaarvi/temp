@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 
+import '/backend/schema/enums/enums.dart';
+
 import '../../flutter_flow/lat_lng.dart';
 import '../../flutter_flow/place.dart';
 import '../../flutter_flow/uploaded_file.dart';
@@ -68,6 +70,9 @@ String? serializeParam(
         return uploadedFileToString(param as FFUploadedFile);
       case ParamType.JSON:
         return json.encode(param);
+
+      case ParamType.Enum:
+        return (param is Enum) ? param.serialize() : null;
 
       default:
         return null;
@@ -143,6 +148,7 @@ enum ParamType {
   FFPlace,
   FFUploadedFile,
   JSON,
+  Enum,
 }
 
 dynamic deserializeParam<T>(
@@ -193,6 +199,9 @@ dynamic deserializeParam<T>(
         return uploadedFileFromString(param);
       case ParamType.JSON:
         return json.decode(param);
+
+      case ParamType.Enum:
+        return deserializeEnum<T>(param);
 
       default:
         return null;
