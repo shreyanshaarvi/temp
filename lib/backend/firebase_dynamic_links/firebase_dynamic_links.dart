@@ -4,7 +4,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
-const _kDynamicLinksUrl = 'https://googleoauthtoogle.page.link';
+const _kDynamicLinksUrl = 'https://googletest.com';
 const _kAppBundleId = 'com.mycompany.googletest';
 
 Future<String> generateCurrentPageLink(

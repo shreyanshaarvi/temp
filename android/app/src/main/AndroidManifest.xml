@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="googleoauthtoogle.page.link" />
+                <data android:scheme="http" android:host="googletest.com" />
                 <data android:scheme="https" />
             </intent-filter>
 

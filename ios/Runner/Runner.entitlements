@@ -4,7 +4,7 @@
 <dict>
     <key>com.apple.developer.associated-domains</key>
     <array>
-      <string>applinks:googleoauthtoogle.page.link</string>
+      <string>applinks:googletest.com</string>
     </array>
 </dict>
 </plist>
