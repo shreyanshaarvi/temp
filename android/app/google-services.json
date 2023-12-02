@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "322522173083",
+    "project_id": "sign-51662",
+    "storage_bucket": "sign-51662.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322522173083:android:70bef9fbb436666fbf403e",
+        "android_client_info": {
+          "package_name": "com.mycompany.googletest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7g7ZorFOrQPM5fsJID6jYdkxOxKk1zcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
