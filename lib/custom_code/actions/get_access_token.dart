@@ -25,9 +25,7 @@ Future<String> getAccessToken(
   });
 
   // Launch the authUrl
-  if (!await canLaunchUrl(authUrl)) {
-    throw 'Could not launch URL: $authUrl';
-  }
+
   await launchUrl(authUrl);
 
   // Retrieve authorization code
