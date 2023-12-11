@@ -63,36 +63,44 @@ class _Auth1WidgetState extends State<Auth1Widget> {
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
-          child: Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
-            child: FFButtonWidget(
-              onPressed: () async {
-                GoRouter.of(context).prepareAuthEvent();
-                final user = await authManager.signInAnonymously(context);
-                if (user == null) {
-                  return;
-                }
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Align(
+                alignment: const AlignmentDirectional(0.00, 0.00),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    final user = await authManager.signInAnonymously(context);
+                    if (user == null) {
+                      return;
+                    }
 
-                context.goNamedAuth('HomePage', context.mounted);
-              },
-              text: 'Button',
-              options: FFButtonOptions(
-                height: 40.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primary,
-                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Readex Pro',
-                      color: Colors.white,
+                    context.goNamedAuth('HomePage', context.mounted);
+                  },
+                  text: 'Sign In',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
                     ),
-                elevation: 3.0,
-                borderSide: const BorderSide(
-                  color: Colors.transparent,
-                  width: 1.0,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(8.0),
               ),
-            ),
+            ],
           ),
         ),
       ),
