@@ -17,15 +17,15 @@ class LineChartWidget extends StatefulWidget {
     this.width,
     this.height,
     this.title,
-    required this.salesX,
-    required this.month,
+    required this.monthX,
+    required this.saley,
   }) : super(key: key);
 
   final double? width;
   final double? height;
   final String? title;
-  final List<double> salesX;
-  final List<String> month;
+  final List<double> monthX;
+  final List<String> saley;
 
   @override
   _LineChartWidgetState createState() => _LineChartWidgetState();
@@ -67,8 +67,8 @@ class _LineChartWidgetState extends State<LineChartWidget> {
 
   List<_ChartData> _generateLineSeriesData() {
     List<_ChartData> data = [];
-    for (int i = 0; i < widget.salesX.length; i++) {
-      data.add(_ChartData(x: widget.month[i], y: widget.salesX[i]));
+    for (int i = 0; i < widget.monthX.length; i++) {
+      data.add(_ChartData(x: widget.saley[i], y: widget.MonthX[i]));
     }
     return data;
   }
