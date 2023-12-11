@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -65,8 +66,14 @@ class _Auth1WidgetState extends State<Auth1Widget> {
           child: Align(
             alignment: const AlignmentDirectional(0.00, 0.00),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                GoRouter.of(context).prepareAuthEvent();
+                final user = await authManager.signInAnonymously(context);
+                if (user == null) {
+                  return;
+                }
+
+                context.goNamedAuth('HomePage', context.mounted);
               },
               text: 'Button',
               options: FFButtonOptions(
