@@ -10,6 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
@@ -51,4 +52,27 @@ List<String> listofmonth(
         .toList();
   }
   return months;
+}
+
+double add(
+  List<DateTime> date,
+  List<double> price,
+) {
+  // create a map to store the total price for each month
+// create a map to store the total price for each month
+  Map<String, double> monthlyTotal = {};
+
+  // loop through the dates and prices and add them to the monthlyTotal map
+  for (int i = 0; i < date.length; i++) {
+    String month = DateFormat('MMMM yyyy').format(date[i]);
+    if (monthlyTotal.containsKey(month)) {
+      monthlyTotal[month] = monthlyTotal[month]! + price[i];
+    } else {
+      monthlyTotal[month] = price[i];
+    }
+  }
+
+  // calculate the overall total and return it
+  double overallTotal = monthlyTotal.values.reduce((a, b) => a + b);
+  return overallTotal;
 }

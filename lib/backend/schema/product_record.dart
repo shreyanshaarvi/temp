@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 
@@ -50,6 +49,11 @@ class ProductRecord extends FirestoreRecord {
   String get pid => _pid ?? '';
   bool hasPid() => _pid != null;
 
+  // "date" field.
+  DateTime? _date;
+  DateTime? get date => _date;
+  bool hasDate() => _date != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _price = castToType<double>(snapshotData['price']);
@@ -58,6 +62,7 @@ class ProductRecord extends FirestoreRecord {
     _resturntRef = snapshotData['resturntRef'] as DocumentReference?;
     _category = snapshotData['category'] as String?;
     _pid = snapshotData['pid'] as String?;
+    _date = snapshotData['date'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -102,6 +107,7 @@ Map<String, dynamic> createProductRecordData({
   DocumentReference? resturntRef,
   String? category,
   String? pid,
+  DateTime? date,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +118,7 @@ Map<String, dynamic> createProductRecordData({
       'resturntRef': resturntRef,
       'category': category,
       'pid': pid,
+      'date': date,
     }.withoutNulls,
   );
 
@@ -129,7 +136,8 @@ class ProductRecordDocumentEquality implements Equality<ProductRecord> {
         e1?.description == e2?.description &&
         e1?.resturntRef == e2?.resturntRef &&
         e1?.category == e2?.category &&
-        e1?.pid == e2?.pid;
+        e1?.pid == e2?.pid &&
+        e1?.date == e2?.date;
   }
 
   @override
@@ -140,7 +148,8 @@ class ProductRecordDocumentEquality implements Equality<ProductRecord> {
         e?.description,
         e?.resturntRef,
         e?.category,
-        e?.pid
+        e?.pid,
+        e?.date
       ]);
 
   @override

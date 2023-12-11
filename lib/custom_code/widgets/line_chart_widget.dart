@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -24,8 +25,8 @@ class LineChartWidget extends StatefulWidget {
   final double? width;
   final double? height;
   final String? title;
-  final List<double> monthX;
-  final List<String> saley;
+  final List<String> monthX;
+  final List<double> saley;
 
   @override
   _LineChartWidgetState createState() => _LineChartWidgetState();
