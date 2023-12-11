@@ -36,3 +36,19 @@ double quantityPricing(
   // multipy to get price according to quantity
   return price * quantity;
 }
+
+List<String> listofmonth(
+  List<DateTime> dates,
+  String? filterMonth,
+) {
+  // create list of month according to given date and filter it to the given instruction l
+  List<String> months =
+      dates.map((date) => DateFormat('MMMM').format(date)).toList();
+  if (filterMonth != null && filterMonth.isNotEmpty) {
+    months = months
+        .where(
+            (month) => month.toLowerCase().contains(filterMonth.toLowerCase()))
+        .toList();
+  }
+  return months;
+}
